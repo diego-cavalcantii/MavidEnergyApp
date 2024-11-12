@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.mavidenergyapp.R
-import com.example.mavidenergyapp.databinding.FragmentSignUpBinding
+import com.example.mavidsmileapp.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
 
