@@ -1,17 +1,17 @@
-// build.gradle.kts (Module)
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.mavidsmileapp"
+    namespace = "com.example.mavidenergyapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.mavidsmileapp"
+        applicationId = "com.example.mavidenergyapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -62,6 +62,10 @@ dependencies {
 
     implementation(libs.glide)
 
+    //FireBase
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation(libs.firebase.storage)
 
     // Testes
     testImplementation("junit:junit:4.13.2")

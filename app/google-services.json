@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784181849292",
+    "project_id": "mavidenergy-98370",
+    "storage_bucket": "mavidenergy-98370.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784181849292:android:ac5945edf0a8080232e669",
+        "android_client_info": {
+          "package_name": "com.example.mavidenergyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1UOQrXdH_hJGuW2c1K4aR10fFtU5sHCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

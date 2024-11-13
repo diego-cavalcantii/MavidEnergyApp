@@ -18,4 +18,11 @@
         tools:layout="@layout/fragment_sign_up"
         />
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mavidenergyapp.fragments.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home"
+        />
+
 </navigation>
