@@ -24,5 +24,17 @@
         android:label="Home Fragment"
         tools:layout="@layout/fragment_home"
         />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.mavidenergyapp.fragments.HistoryFragment"
+        android:label="History Fragment"
+        tools:layout="@layout/fragment_history"
+        />
+    <fragment
+        android:id="@+id/curiositiesFragment"
+        android:name="com.example.mavidenergyapp.fragments.CuriositiesFragment"
+        android:label="Curiosities Fragment"
+        tools:layout="@layout/fragment_curiosities"
+        />
 
 </navigation>
