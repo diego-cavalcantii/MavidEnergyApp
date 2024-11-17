@@ -8,8 +8,8 @@ class Menu (
     private val navController: NavController
 ){
     fun setupMenu() {
-        rootView.findViewById<View>(R.id.buttonHistory)?.setOnClickListener{
-            navController.navigate(R.id.historyFragment)
+        rootView.findViewById<View>(R.id.buttonUsuario)?.setOnClickListener{
+            navController.navigate(R.id.usuarioFragment)
         }
         rootView.findViewById<View>(R.id.buttonConsulta)?.setOnClickListener{
             navController.navigate(R.id.homeFragment)

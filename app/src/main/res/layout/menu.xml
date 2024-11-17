@@ -7,7 +7,7 @@
     android:background="@drawable/background_menu">
 
     <ImageButton
-        android:id="@+id/buttonHistory"
+        android:id="@+id/buttonUsuario"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@android:color/transparent"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/icone_history"
+        app:srcCompat="@drawable/baseline_account_circle_24"
         app:tint="@color/icon_button" />
 
     <ImageButton
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/icone_consulta"
+        app:srcCompat="@drawable/baseline_home_24"
         app:tint="@color/icon_button" />
 
 
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/icone_curiosidades"
+        app:srcCompat="@drawable/baseline_lightbulb_circle_24"
         app:tint="@color/icon_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

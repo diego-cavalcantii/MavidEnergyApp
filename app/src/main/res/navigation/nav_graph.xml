@@ -15,26 +15,40 @@
         android:id="@+id/signUpFragment"
         android:name="com.example.mavidenergyapp.fragments.SignUpFragment"
         android:label="SignUp Fragment"
-        tools:layout="@layout/fragment_sign_up"
-        />
+        tools:layout="@layout/fragment_sign_up" />
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.mavidenergyapp.fragments.HomeFragment"
         android:label="Home Fragment"
-        tools:layout="@layout/fragment_home"
-        />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.mavidenergyapp.fragments.HistoryFragment"
         android:label="History Fragment"
-        tools:layout="@layout/fragment_history"
-        />
+        tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/curiositiesFragment"
         android:name="com.example.mavidenergyapp.fragments.CuriositiesFragment"
         android:label="Curiosities Fragment"
-        tools:layout="@layout/fragment_curiosities"
-        />
+        tools:layout="@layout/fragment_curiosities" />
+
+    <fragment
+        android:id="@+id/formularioFragment"
+        android:name="com.example.mavidenergyapp.fragments.FormularioFragment"
+        android:label="Formulario Fragment"
+        tools:layout="@layout/fragment_formulario" />
+
+    <fragment
+        android:id="@+id/usuarioFragment"
+        android:name="com.example.mavidenergyapp.fragments.UsuarioFragment"
+        android:label="Usuario Fragment"
+        tools:layout="@layout/fragment_usuario" />
+
+    <fragment
+        android:id="@+id/dadosUsuarioFragment"
+        android:name="com.example.mavidenergyapp.fragments.DadosUsuarioFragment"
+        android:label="Dados Usuario Fragment"
+        tools:layout="@layout/fragment_dados_usuario" />
 
 </navigation>

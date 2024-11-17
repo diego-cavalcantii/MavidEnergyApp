@@ -8,17 +8,16 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mavidenergyapp.Menu
 import com.example.mavidenergyapp.R
-import com.example.mavidenergyapp.databinding.FragmentHomeBinding
+import com.example.mavidenergyapp.databinding.FragmentUsuarioBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
-class HomeFragment : Fragment() {
+class UsuarioFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!  // Safe property access
-
+    private var _binding: FragmentUsuarioBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,24 +28,29 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
+        _binding = FragmentUsuarioBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val menu = Menu(binding.root, findNavController())
+        menu.setupMenu()
+
         binding.logout.setOnClickListener {
             auth.signOut()
             findNavController().navigate(R.id.loginFragment)
         }
 
-        val menu = Menu(binding.root, findNavController())
-        menu.setupMenu()
-
-        binding.buttonGerarConsulta.setOnClickListener {
-            findNavController().navigate(R.id.formularioFragment)
+        binding.buttonDados.setOnClickListener{
+            findNavController().navigate(R.id.dadosUsuarioFragment)
         }
 
+        binding.buttonHistorico.setOnClickListener{
+            findNavController().navigate(R.id.historyFragment)
+        }
     }
 
 }

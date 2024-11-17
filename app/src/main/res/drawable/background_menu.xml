@@ -3,11 +3,11 @@
     <item>
         <shape>
             <solid android:color="#66000000" /> <!-- Cor da sombra com opacidade -->
-            <corners
-                android:topLeftRadius="20dp"
-                android:bottomLeftRadius="0dp"
-                android:topRightRadius="20dp"
-                android:bottomRightRadius="0dp" />
+<!--            <corners-->
+<!--                android:topLeftRadius="20dp"-->
+<!--                android:bottomLeftRadius="0dp"-->
+<!--                android:topRightRadius="20dp"-->
+<!--                android:bottomRightRadius="0dp" />-->
         </shape>
         <padding
             android:left="4dp"
@@ -20,11 +20,11 @@
     <item>
         <shape>
             <solid android:color="#FAFAFA" />
-            <corners
-                android:topLeftRadius="20dp"
-                android:bottomLeftRadius="0dp"
-                android:topRightRadius="20dp"
-                android:bottomRightRadius="0dp" />
+<!--            <corners-->
+<!--                android:topLeftRadius="20dp"-->
+<!--                android:bottomLeftRadius="0dp"-->
+<!--                android:topRightRadius="20dp"-->
+<!--                android:bottomRightRadius="0dp" />-->
         </shape>
     </item>
 </layer-list>

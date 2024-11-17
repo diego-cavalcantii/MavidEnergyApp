@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.mavidenergyapp.Menu
 import com.example.mavidenergyapp.R
-import com.example.mavidenergyapp.databinding.FragmentHistoryBinding
+import com.example.mavidenergyapp.databinding.FragmentDadosUsuarioBinding
 
+class DadosUsuarioFragment : Fragment() {
 
-class HistoryFragment : Fragment() {
-
-    private var _binding: FragmentHistoryBinding? = null
-    private val binding get() = _binding!!  // Safe property access
-
+    private var _binding: FragmentDadosUsuarioBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,18 +21,21 @@ class HistoryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
+    ): View {
+        _binding = FragmentDadosUsuarioBinding.inflate(inflater, container, false)
+
+        binding.layoutEditaEndereco.visibility = View.GONE
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         binding.buttonBack.setOnClickListener {
             findNavController().navigate(R.id.usuarioFragment)
         }
     }
-
 }
