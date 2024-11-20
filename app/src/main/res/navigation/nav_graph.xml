@@ -51,4 +51,10 @@
         android:label="Dados Usuario Fragment"
         tools:layout="@layout/fragment_dados_usuario" />
 
+    <fragment
+        android:id="@+id/cidadeCuriositieFragment"
+        android:name="com.example.mavidenergyapp.fragments.CidadeCuriositieFragment"
+        android:label="Cidade Curiositie Fragment"
+        tools:layout="@layout/fragment_cidade_curiositie" />
+
 </navigation>

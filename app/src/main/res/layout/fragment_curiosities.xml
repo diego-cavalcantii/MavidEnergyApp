@@ -30,22 +30,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
+
+    <Spinner
+        android:id="@+id/spinnerCidades"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Selecione uma cidade"
-        android:inputType="text"
+        android:background="@android:drawable/editbox_background"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453" />
+        app:layout_constraintVertical_bias="0.456" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/buttonCidadeCuriositie"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginStart="45dp"

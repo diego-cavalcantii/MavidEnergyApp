@@ -1,0 +1,162 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.CidadeCuriositieFragment">
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <!-- Título -->
+
+    <!-- CardView para os dados -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dados Climáticos"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDadosClimaticos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Container para os dados -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Nome da cidade -->
+            <TextView
+                android:id="@+id/textViewCidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Cidade: São Paulo, São Paulo"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <!-- Clima -->
+            <TextView
+                android:id="@+id/textViewClima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Clima: nublado"
+                android:textSize="16sp" />
+
+            <!-- Temperatura -->
+            <TextView
+                android:id="@+id/textViewTemperatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Temperatura: 21,1°C"
+                android:textSize="16sp" />
+
+            <!-- Sensação Térmica -->
+            <TextView
+                android:id="@+id/textViewSensacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Sensação Térmica: 21,6°C"
+                android:textSize="16sp" />
+
+            <!-- Umidade -->
+            <TextView
+                android:id="@+id/textViewUmidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Umidade: 89%"
+                android:textSize="16sp" />
+
+            <!-- Velocidade do Vento -->
+            <TextView
+                android:id="@+id/textViewVentoVelocidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Velocidade do Vento: 5.66 m/s"
+                android:textSize="16sp" />
+
+            <!-- Direção do Vento -->
+            <TextView
+                android:id="@+id/textViewVentoDirecao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Direção do Vento: Sul"
+                android:textSize="16sp" />
+
+            <!-- Cobertura de Nuvens -->
+            <TextView
+                android:id="@+id/textViewCoberturaNuvens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Cobertura de Nuvens: 75%"
+                android:textSize="16sp" />
+
+            <!-- Nascer do Sol -->
+            <TextView
+                android:id="@+id/textViewNascerSol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Nascer do Sol: 05:12"
+                android:textSize="16sp" />
+
+            <!-- Pôr do Sol -->
+            <TextView
+                android:id="@+id/textViewPorSol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pôr do Sol: 18:32"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Menu -->
+    <include
+        layout="@layout/menu"
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
