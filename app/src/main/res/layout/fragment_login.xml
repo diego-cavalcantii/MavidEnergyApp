@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/editTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -22,8 +22,8 @@
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="numberPassword"
@@ -36,9 +36,11 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
         android:text="Login"
+        android:textSize="16sp"
+        android:backgroundTint="@color/icon_button_selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -48,13 +50,18 @@
 
     <Button
         android:id="@+id/buttonSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
         android:text="SignUp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/icon_button_selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
         app:layout_constraintVertical_bias="0.082" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
