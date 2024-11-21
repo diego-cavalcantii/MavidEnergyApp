@@ -46,10 +46,10 @@
         tools:layout="@layout/fragment_usuario" />
 
     <fragment
-        android:id="@+id/dadosUsuarioFragment"
-        android:name="com.example.mavidenergyapp.fragments.DadosUsuarioFragment"
-        android:label="Dados Usuario Fragment"
-        tools:layout="@layout/fragment_dados_usuario" />
+        android:id="@+id/enderecosFragment"
+        android:name="com.example.mavidenergyapp.fragments.EnderecosFragment"
+        android:label="Endereco Fragment"
+        tools:layout="@layout/fragment_enderecos" />
 
     <fragment
         android:id="@+id/cidadeCuriositieFragment"

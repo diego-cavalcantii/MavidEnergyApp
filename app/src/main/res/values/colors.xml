@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="icon_button">#7A7A7A</color>
     <color name="icon_button_selected">#1f61c8</color>
+    <color name="text">#FF000000</color>
 </resources>
