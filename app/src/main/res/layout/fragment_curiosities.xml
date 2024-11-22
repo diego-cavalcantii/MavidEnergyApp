@@ -36,7 +36,6 @@
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginTop="320dp"
-        android:background="@android:drawable/editbox_background"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

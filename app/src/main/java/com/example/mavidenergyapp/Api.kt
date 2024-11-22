@@ -11,8 +11,6 @@ import com.example.mavidenergyapp.domains.FornecedorResponse
 import com.example.mavidenergyapp.domains.PaginatedResponse
 import com.example.mavidenergyapp.domains.Pessoa
 import com.example.mavidenergyapp.domains.PessoaResponse
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -67,6 +65,11 @@ interface EnderecoService {
 interface ConsultaService {
     @POST("/consulta")
     fun gerarConsulta(@Body consultaRequest: ConsultaRequest): Call<ConsultaResponse>
+
+    @GET("/consulta/pessoa/{pessoaId}")
+    fun buscarConsultasPorPessoa(@Path("pessoaId") pessoaId: String): Call<List<ConsultaResponse>>
+
+
 }
 
 interface CepService {
@@ -90,16 +93,16 @@ object Api {
 
     private const val URL = "http://192.168.0.25:8080"
 
-    val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })
-        .build()
+//    val okHttpClient = OkHttpClient.Builder()
+//        .addInterceptor(HttpLoggingInterceptor().apply {
+//            level = HttpLoggingInterceptor.Level.BODY
+//        })
+//        .build()
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .client(okHttpClient)
+//        .client(okHttpClient)
         .build()
 
     fun buildServicePessoa(): PessoaService {

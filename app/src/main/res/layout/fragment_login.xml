@@ -27,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:hint="Senha"
-        android:inputType="textPassword"
+        android:inputType="numberPassword"
         android:ems="10"
         android:drawableStart="@drawable/ic_password"
         android:drawablePadding="10dp"

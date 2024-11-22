@@ -10,6 +10,7 @@ data class ConsultaRequest(
 )
 
 data class ConsultaResponse(
+    val consultaId: String,
     val bandeira: String,
     val valorKwh: Double,
     val endereco: EnderecoResponse,

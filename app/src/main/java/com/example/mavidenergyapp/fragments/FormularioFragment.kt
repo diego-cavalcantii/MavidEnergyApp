@@ -70,10 +70,11 @@ class FormularioFragment : Fragment() {
         }
 
 
-        val bandeiras = listOf("Verde", "Amarela", "Vermelha")
+        val bandeiras = arrayOf("Verde", "Amarela", "Vermelha")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, bandeiras)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerBandeira.adapter = adapter
+
 
         binding.spinnerBandeira.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
