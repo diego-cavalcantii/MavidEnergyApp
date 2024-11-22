@@ -6,4 +6,5 @@ import com.example.mavidenergyapp.domains.ConsultaResponse
 
 class SharedViewModel : ViewModel() {
     val resultadoConsulta: MutableLiveData<ConsultaResponse> = MutableLiveData()
+    val selectedEnderecoId = MutableLiveData<String>()
 }

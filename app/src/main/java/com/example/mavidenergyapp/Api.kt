@@ -21,6 +21,8 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.Response
+import retrofit2.http.DELETE
+import retrofit2.http.PUT
 import retrofit2.http.Query
 
 
@@ -49,8 +51,17 @@ interface EnderecoService {
     @GET("/enderecos/pessoa/{pessoaId}")
     fun buscarEnderecoPorPessoa(@Path("pessoaId") pessoaId: String): Call<List<EnderecoResponse>>
 
+    @GET("/enderecos/{enderecoId}")
+    fun buscarEnderecoPorId(@Path("enderecoId") enderecoId: String): Call<EnderecoResponse>
+
     @POST("/enderecos")
     fun adicionarEndereco(@Body enderecoRequest: EnderecoRequest): Call<EnderecoResponse>
+
+    @PUT("/enderecos/{enderecoId}")
+    fun atualizarEndereco(@Path("enderecoId") enderecoId: String, @Body enderecoRequest: EnderecoRequest): Call<EnderecoResponse>
+
+    @DELETE("/enderecos/{enderecoId}")
+    fun deletarEndereco(@Path("enderecoId") enderecoId: String): Call<Void>
 }
 
 interface ConsultaService {

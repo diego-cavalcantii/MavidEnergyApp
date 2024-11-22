@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.example.mavidenergyapp.Api
 import com.example.mavidenergyapp.CepService
 import com.example.mavidenergyapp.R
 import com.example.mavidenergyapp.SessionManager
+import com.example.mavidenergyapp.SharedViewModel
 import com.example.mavidenergyapp.adapters.EnderecoAdapter
 import com.example.mavidenergyapp.databinding.FragmentEnderecosBinding
 import com.example.mavidenergyapp.domains.CidadeResponse
@@ -32,6 +34,8 @@ class EnderecosFragment : Fragment() {
 
     private var _binding: FragmentEnderecosBinding? = null
     private val binding get() = _binding!!
+    private val sharedViewModel: SharedViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,11 +96,44 @@ class EnderecosFragment : Fragment() {
     private fun displayEnderecos(enderecos: List<EnderecoResponse>) {
         val recyclerView = binding.recyclerEnderecos
 
-        // Configurar o RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = EnderecoAdapter(enderecos, { endereco ->
+            // Ação para um clique normal no item
+        }, { endereco ->
+            // Ação para o clique no botão editar
+            sharedViewModel.selectedEnderecoId.value = endereco.enderecoId
+            findNavController().navigate(R.id.editaEnderecoFragment)
+        }, { endereco ->
+            // Ação para o clique no botão excluir
+            deleteEndereco(endereco.enderecoId)
+        })
+    }
 
-        // Passa uma função vazia para onItemClick, pois esse fragment apenas exibe os endereços
-        recyclerView.adapter = EnderecoAdapter(enderecos) { }
+    private fun deleteEndereco(enderecoId: String) {
+        val enderecoService = Api.buildServiceEndereco()
+
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    enderecoService.deletarEndereco(enderecoId).execute()
+                }
+
+                if (response.isSuccessful) {
+                    if (isAdded) { // Checa se o fragmento ainda está ativo
+                        Toast.makeText(requireContext(), "Endereço excluído com sucesso!", Toast.LENGTH_SHORT).show()
+                        findNavController().navigateUp() // Navega para cima somente se o fragmento estiver ativo
+                    }
+                } else {
+                    if (isAdded) {
+                        Toast.makeText(requireContext(), "Erro ao excluir endereço: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                if (isAdded) {
+                    Toast.makeText(requireContext(), "Erro de conexão: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
 

@@ -48,5 +48,23 @@
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="4dp" />
 
+        <Button
+            android:id="@+id/buttonEditar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/black"
+            android:text="Editar"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/buttonExcluir"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Excluir"
+            android:backgroundTint="@color/danger"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

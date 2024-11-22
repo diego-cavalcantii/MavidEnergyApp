@@ -30,7 +30,8 @@ class FormularioFragment : Fragment() {
     private val binding get() = _binding!!
     private var bandeiraSelecionada: String? = null
     private var enderecoIdSelecionado: String? = null
-    val viewModel: SharedViewModel by activityViewModels()
+    private val viewModel: SharedViewModel by activityViewModels()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,17 +133,56 @@ class FormularioFragment : Fragment() {
     private fun displayEnderecos(enderecos: List<EnderecoResponse>) {
         val recyclerView = binding.recyclerEnderecos
 
-        // Configurar o RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = EnderecoAdapter(enderecos) { endereco ->
+        recyclerView.adapter = EnderecoAdapter(enderecos, { endereco ->
+            // Ação para um clique normal no item
             enderecoIdSelecionado = endereco.enderecoId
             Toast.makeText(requireContext(), "Endereço selecionado: ${endereco.logradouro}", Toast.LENGTH_SHORT).show()
 
-            // Voltar para o layout principal
+            // Aqui você pode adicionar qualquer outra lógica que aconteça após o clique no item
+            // Por exemplo, atualizar a UI ou preparar para navegar para outro fragmento
             binding.layoutEnderecos.visibility = View.GONE
             binding.layoutPreResultado.visibility = View.VISIBLE
+        }, { endereco ->
+            // Ação para o clique no botão editar
+            viewModel.selectedEnderecoId.postValue(endereco.enderecoId)
+            findNavController().navigate(R.id.editaEnderecoFragment)
+        }, { endereco ->
+            // Ação para o clique no botão excluir
+            deleteEndereco(endereco.enderecoId)
+            findNavController().navigateUp()
+        })
+    }
+
+    private fun deleteEndereco(enderecoId: String) {
+        val enderecoService = Api.buildServiceEndereco()
+
+        lifecycleScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    enderecoService.deletarEndereco(enderecoId).execute()
+                }
+
+                if (response.isSuccessful) {
+                    if (isAdded) { // Checa se o fragmento ainda está ativo
+                        Toast.makeText(requireContext(), "Endereço excluído com sucesso!", Toast.LENGTH_SHORT).show()
+                        findNavController().navigateUp() // Navega para cima somente se o fragmento estiver ativo
+                    }
+                } else {
+                    if (isAdded) {
+                        Toast.makeText(requireContext(), "Erro ao excluir endereço: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                if (isAdded) {
+                    Toast.makeText(requireContext(), "Erro de conexão: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
+
+
+
 
     private fun saveConsulta() {
         val valorKwh = binding.editTextKWH.text.toString()

@@ -75,4 +75,10 @@
         android:label="Fornecedores Fragment"
         tools:layout="@layout/fragment_fornecedores" />
 
+    <fragment
+        android:id="@+id/editaEnderecoFragment"
+        android:name="com.example.mavidenergyapp.fragments.EditaEnderecoFragment"
+        android:label="Edita Endereco Fragment"
+        tools:layout="@layout/fragment_edita_endereco" />
+
 </navigation>
