@@ -2,79 +2,98 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout11"
+    android:id="@+id/layoutEditaEndereco"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AdicionaEnderecoFragment">
-
-    <LinearLayout
-        android:id="@+id/layoutEditaEndereco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/inputCep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CEP"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/inputLogradouro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Logradouro" />
-
-        <EditText
-            android:id="@+id/inputNumero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/inputCidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Cidade" />
-
-        <EditText
-            android:id="@+id/inputEstado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Estado" />
-
-        <Button
-            android:id="@+id/buttonSalvarEndereco"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/icon_button_selected"
-            android:text="Adicionar " />
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
         android:text="Adicionar Endereço"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputCep"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="240dp"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="CEP"
+        android:inputType="number"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputLogradouro"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:drawablePadding="10dp"
+        android:enabled="false"
+        android:hint="Logradouro"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputCep" />
+
+    <EditText
+        android:id="@+id/inputNumero"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:drawablePadding="10dp"
+        android:hint="Número"
+        android:inputType="text"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLogradouro" />
+
+    <EditText
+        android:id="@+id/inputCidade"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:drawablePadding="10dp"
+        android:enabled="false"
+        android:hint="Cidade"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputNumero" />
+
+    <EditText
+        android:id="@+id/inputEstado"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:drawablePadding="10dp"
+        android:enabled="false"
+        android:hint="Estado"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputCidade" />
+
+    <Button
+        android:id="@+id/buttonSalvarEndereco"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/icon_button_selected"
+        android:text="Adicionar Endereço"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputEstado" />
 
     <ImageButton
         android:id="@+id/buttonBack"
@@ -87,6 +106,7 @@
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:tint="@color/text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

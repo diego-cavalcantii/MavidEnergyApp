@@ -35,28 +35,25 @@
         android:id="@+id/spinnerCidades"
         android:layout_width="320dp"
         android:layout_height="50dp"
+        android:layout_marginTop="320dp"
         android:background="@android:drawable/editbox_background"
         android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCidadeCuriositie"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/icon_button_selected"
+        android:text="Dados climaticos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
-
-    <ImageButton
-        android:id="@+id/buttonCidadeCuriositie"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="46dp"
-        android:src="@drawable/baseline_arrow_right_alt_24"
-        android:background="@color/icon_button_selected"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCidades"
+        app:layout_constraintVertical_bias="0.046" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
