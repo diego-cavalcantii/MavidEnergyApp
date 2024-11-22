@@ -57,4 +57,22 @@
         android:label="Cidade Curiositie Fragment"
         tools:layout="@layout/fragment_cidade_curiositie" />
 
+    <fragment
+        android:id="@+id/adicionaEnderecoFragment"
+        android:name="com.example.mavidenergyapp.fragments.AdicionaEnderecoFragment"
+        android:label="Adiciona Endereco Fragment"
+        tools:layout="@layout/fragment_adiciona_endereco" />
+
+    <fragment
+        android:id="@+id/resultadoConsultaFragment"
+        android:name="com.example.mavidenergyapp.fragments.ResultadoConsultaFragment"
+        android:label="Resultado Consulta Fragment"
+        tools:layout="@layout/fragment_resultado_consulta"/>
+
+    <fragment
+        android:id="@+id/fornecedoresFragment"
+        android:name="com.example.mavidenergyapp.fragments.FornecedoresFragment"
+        android:label="Fornecedores Fragment"
+        tools:layout="@layout/fragment_fornecedores" />
+
 </navigation>

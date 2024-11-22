@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/background_menu">
+    android:background="@color/icon_button_selected">
 
     <ImageButton
         android:id="@+id/buttonUsuario"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/baseline_account_circle_24"
-        app:tint="@color/icon_button" />
+        app:tint="@color/white" />
 
     <ImageButton
         android:id="@+id/buttonConsulta"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/baseline_home_24"
-        app:tint="@color/icon_button" />
+        app:tint="@color/white" />
 
 
     <ImageButton
@@ -50,6 +50,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/baseline_lightbulb_circle_24"
-        app:tint="@color/icon_button" />
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

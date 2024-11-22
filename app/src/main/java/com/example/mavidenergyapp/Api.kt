@@ -2,11 +2,17 @@ package com.example.mavidenergyapp
 
 import com.example.mavidenergyapp.domains.CepResponse
 import com.example.mavidenergyapp.domains.CidadeResponse
+import com.example.mavidenergyapp.domains.ConsultaRequest
+import com.example.mavidenergyapp.domains.ConsultaResponse
 import com.example.mavidenergyapp.domains.DadosClimaticosResponse
 import com.example.mavidenergyapp.domains.EnderecoRequest
 import com.example.mavidenergyapp.domains.EnderecoResponse
+import com.example.mavidenergyapp.domains.FornecedorResponse
+import com.example.mavidenergyapp.domains.PaginatedResponse
 import com.example.mavidenergyapp.domains.Pessoa
 import com.example.mavidenergyapp.domains.PessoaResponse
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,6 +21,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.Response
+import retrofit2.http.Query
 
 
 interface PessoaService {
@@ -44,8 +51,11 @@ interface EnderecoService {
 
     @POST("/enderecos")
     fun adicionarEndereco(@Body enderecoRequest: EnderecoRequest): Call<EnderecoResponse>
+}
 
-
+interface ConsultaService {
+    @POST("/consulta")
+    fun gerarConsulta(@Body consultaRequest: ConsultaRequest): Call<ConsultaResponse>
 }
 
 interface CepService {
@@ -53,14 +63,32 @@ interface CepService {
     suspend fun buscarCep(@Path("cep") cep: String): CepResponse
 }
 
+interface FornecedorService {
+    @GET("/fornecedores/proximos")
+    fun buscarFornecedoresProximos(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double,
+    ): Call<List<FornecedorResponse>>
+}
+
+
+
+
 
 object Api {
 
     private const val URL = "http://192.168.0.25:8080"
 
+    val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        })
+        .build()
+
     private val retrofit = Retrofit.Builder()
         .baseUrl(URL)
         .addConverterFactory(GsonConverterFactory.create())
+        .client(okHttpClient)
         .build()
 
     fun buildServicePessoa(): PessoaService {
@@ -77,5 +105,13 @@ object Api {
 
     fun buildServiceCep(): CepService {
         return retrofit.create(CepService::class.java)
+    }
+
+    fun buildServiceConsulta(): ConsultaService {
+        return retrofit.create(ConsultaService::class.java)
+    }
+
+    fun buildServiceFornecedor(): FornecedorService {
+        return retrofit.create(FornecedorService::class.java)
     }
 }

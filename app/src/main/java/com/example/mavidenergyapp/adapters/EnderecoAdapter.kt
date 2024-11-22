@@ -9,7 +9,8 @@ import com.example.mavidenergyapp.R
 import com.example.mavidenergyapp.domains.EnderecoResponse
 
 class EnderecoAdapter(
-    private val enderecos: List<EnderecoResponse>
+    private val enderecos: List<EnderecoResponse>,
+    private val onItemClick: (EnderecoResponse) -> Unit // Callback para clique
 ) : RecyclerView.Adapter<EnderecoAdapter.EnderecoViewHolder>() {
 
     class EnderecoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,7 +32,13 @@ class EnderecoAdapter(
         holder.numero.text = "Número: ${endereco.numero}"
         holder.cep.text = "CEP: ${endereco.cep}"
         holder.cidade.text = "${endereco.nomeCidade}, ${endereco.siglaEstado}"
+
+        // Configura o clique no item
+        holder.itemView.setOnClickListener {
+            onItemClick(endereco)
+        }
     }
 
     override fun getItemCount(): Int = enderecos.size
 }
+

@@ -1,14 +1,16 @@
 package com.example.mavidenergyapp.domains
 
+
 data class EnderecoResponse(
+    val enderecoId: String,
     val cep: String,
     val logradouro: String,
     val numero: String,
     val nomeCidade: String,
     val nomeEstado: String,
     val siglaEstado: String,
-    val latitude: Double?,
-    val longitude: Double?
+    val latitude: Double,
+    val longitude: Double
 )
 
 data class EnderecoRequest(

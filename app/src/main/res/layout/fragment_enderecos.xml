@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.EnderecosFragment">
 
-
     <ImageButton
         android:id="@+id/buttonBack"
         android:layout_width="45dp"
@@ -34,60 +33,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19" />
 
-    <LinearLayout
-        android:id="@+id/layoutEditaEndereco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/inputCep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CEP"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/inputLogradouro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Logradouro" />
-
-        <EditText
-            android:id="@+id/inputNumero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/inputCidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Cidade" />
-
-        <EditText
-            android:id="@+id/inputEstado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Estado" />
-
-        <Button
-            android:id="@+id/buttonSalvarEndereco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-    </LinearLayout>
-
     <ImageView
         android:id="@+id/buttonAddEndereco"
         android:layout_width="60dp"
@@ -110,9 +55,6 @@
         app:layout_constraintTop_toBottomOf="@id/textView14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

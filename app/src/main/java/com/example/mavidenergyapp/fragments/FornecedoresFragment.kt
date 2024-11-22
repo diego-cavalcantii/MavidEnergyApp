@@ -1,43 +1,40 @@
 package com.example.mavidenergyapp.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mavidenergyapp.Api
-import com.example.mavidenergyapp.CepService
 import com.example.mavidenergyapp.R
-import com.example.mavidenergyapp.SessionManager
-import com.example.mavidenergyapp.adapters.EnderecoAdapter
-import com.example.mavidenergyapp.databinding.FragmentEnderecosBinding
-import com.example.mavidenergyapp.domains.CidadeResponse
-import com.example.mavidenergyapp.domains.EnderecoRequest
-import com.example.mavidenergyapp.domains.EnderecoResponse
+import com.example.mavidenergyapp.SharedViewModel
+import com.example.mavidenergyapp.adapters.FornecedorAdapter
+import com.example.mavidenergyapp.databinding.FragmentFornecedoresBinding
+import com.example.mavidenergyapp.domains.FornecedorResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
 
-class EnderecosFragment : Fragment() {
+class FornecedoresFragment : Fragment() {
 
-    private var _binding: FragmentEnderecosBinding? = null
+    private var _binding: FragmentFornecedoresBinding? = null
     private val binding get() = _binding!!
+    private val sharedViewModel: SharedViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEnderecosBinding.inflate(inflater, container, false)
+        _binding = FragmentFornecedoresBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,35 +45,28 @@ class EnderecosFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        binding.buttonAddEndereco.setOnClickListener {
-            findNavController().navigate(R.id.adicionaEnderecoFragment)
+        sharedViewModel.resultadoConsulta.observe(viewLifecycleOwner) { resultado ->
+            if (resultado != null) {
+                loadFornecedores(resultado.endereco.latitude, resultado.endereco.longitude)
+            }
         }
-
-        // Carregar os endereços da pessoa
-        loadEnderecos()
-
     }
 
-    private fun loadEnderecos() {
-        val pessoaId = SessionManager.pessoaId
-        if (pessoaId == null) {
-            Toast.makeText(requireContext(), "Erro: pessoaId não encontrado.", Toast.LENGTH_SHORT).show()
-            return
-        }
+    private fun loadFornecedores(latitude: Double, longitude: Double) {
 
-        val enderecoService = Api.buildServiceEndereco()
+        val fornecedorService = Api.buildServiceFornecedor()
 
         lifecycleScope.launch {
             try {
                 // Chamada ao endpoint
                 val response = withContext(Dispatchers.IO) {
-                    enderecoService.buscarEnderecoPorPessoa(pessoaId).execute()
+                    fornecedorService.buscarFornecedoresProximos(latitude, longitude).execute()
                 }
 
                 if (response.isSuccessful) {
-                    val enderecos = response.body()
-                    if (!enderecos.isNullOrEmpty()) {
-                        displayEnderecos(enderecos)
+                    val fornecedores = response.body()
+                    if (fornecedores != null) {
+                        displayEnderecos(fornecedores)
                     } else {
                         Toast.makeText(requireContext(), "Nenhum endereço encontrado.", Toast.LENGTH_SHORT).show()
                     }
@@ -89,20 +79,16 @@ class EnderecosFragment : Fragment() {
         }
     }
 
-    private fun displayEnderecos(enderecos: List<EnderecoResponse>) {
-        val recyclerView = binding.recyclerEnderecos
+    private fun displayEnderecos(fornecedores: List<FornecedorResponse>) {
+        val recyclerView = binding.recyclerViewFornecedores
 
         // Configurar o RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Passa uma função vazia para onItemClick, pois esse fragment apenas exibe os endereços
-        recyclerView.adapter = EnderecoAdapter(enderecos) { }
+        recyclerView.adapter = FornecedorAdapter(fornecedores)
     }
 
 
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
