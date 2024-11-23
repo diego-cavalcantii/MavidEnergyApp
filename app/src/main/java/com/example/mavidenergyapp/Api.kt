@@ -91,7 +91,7 @@ interface FornecedorService {
 
 object Api {
 
-    private const val URL = "http://192.168.0.25:8080"
+    private const val URL = "191.232.170.13:8080"
 
 //    val okHttpClient = OkHttpClient.Builder()
 //        .addInterceptor(HttpLoggingInterceptor().apply {
